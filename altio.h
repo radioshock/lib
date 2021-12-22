@@ -1,5 +1,6 @@
-/*  ALTDEF.H
-    You should have recived a file named "LICENSE" (without quotes); if not, refer to https://opensource.org/licenses/MIT.
+/*  ALTIO.H
+    C alternate standard library
+    Standard Input/Output
 */
 
 #if !defined(_ALTIO_H)
@@ -8,13 +9,7 @@
 #include "altdef.h"
 #include "string.h"
 
-#if defined(_LIBK)
-#include _LIBK
-#endif
-
-#ifndef putchar
-extern int putchar(int c);
-#endif
+int putchar(int c);
 
 /* Screen input/output */
 

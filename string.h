@@ -1,8 +1,9 @@
 /*  STRING.H
-    You should have recived a file named "LICENSE" (without quotes); if not, refer to https://opensource.org/licenses/MIT.
+    C alternate standard library
+    String handling
 */
 
-#ifndef _STRING_H
+#if !defined(_STRING_H)
 #define _STRING_H 1
 
 size_t strlen(const char* str) 

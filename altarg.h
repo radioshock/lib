@@ -1,5 +1,6 @@
 /*  ALTARG.H
-    You should have recived a file named "LICENSE" (without quotes) with this software; if not, refer to https://opensource.org/licenses/MIT.
+    C alternate standard library
+    Variadic arguments
 */
 
 #if !defined _ALTARG_H
