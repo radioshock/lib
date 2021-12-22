@@ -2,5 +2,5 @@
 Alternate C standard library  
 
 ## Todo
-1. `print` and `printf` should not rely on an external putchar
+1. Windows support
 2. `scanf` like function
