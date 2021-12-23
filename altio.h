@@ -10,10 +10,13 @@
 #include "unistd.h"
 #elif defined(_WIN32)
 #error "altio.h: Microsoft Windows is not supported at this time."
-#endif // __unix__ __APPLE__ _WIN32
+#elif defined(__ACRYLIC__)
+#include "interface.h"
+#endif // __unix__ __APPLE__ _WIN32 __ACRYLIC__
+
 #include "altarg.h"
 #include "altdef.h"
-#include "string.h"
+#include "altstr.h"
 
 #define _alterr 2
 #define _altout 1
@@ -58,16 +61,16 @@ int printf(const char* restrict format, ...) {
 
 // Keyboard Input/Output
 
-int getchar(void) {
-    char in;
-    read(_altin, &in, sizeof(in));
-    return in;
-}
-
 const char* scan() {
     static char in[255];
     read(_altin, in, 255);
     return in;
+}
+
+int getchar(void) {
+    const char* in;
+    in = scan();
+    return in[0];
 }
 
 int scanf(const char* format, ...) {
@@ -86,7 +89,7 @@ int scanf(const char* format, ...) {
                 char* c = (char*)scan();
                 *buffer = c;
             }
-		}
+        }
     }
     va_end(parameters);
     return 1;
