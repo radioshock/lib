@@ -19,16 +19,15 @@
 #define _altout 1
 #define _altin 0
 
+// Screen input/output
+
 int putchar(int c) {
     char out = c;
     write(_altout, &out, sizeof(out));
     return 1;
 }
 
-// Screen input/output
-
-inline void print(const char* str, size_t size)
-{
+inline void print(const char* str, size_t size) {
 	for(size_t i = 0; i < size; i++) putchar(str[i]);
 }
 
@@ -52,6 +51,42 @@ int printf(const char* restrict format, ...) {
             }
 		}
 		else putchar(format[i]);
+    }
+    va_end(parameters);
+    return 1;
+}
+
+// Keyboard Input/Output
+
+int getchar(void) {
+    char in;
+    read(_altin, &in, sizeof(in));
+    return in;
+}
+
+const char* scan() {
+    static char in[255];
+    read(_altin, in, 255);
+    return in;
+}
+
+int scanf(const char* format, ...) {
+    va_list parameters;
+    va_start(parameters, format);
+    for(size_t i=0; i < strlen(format); i++) {
+        if(format[i] == '%') {
+			i++;
+			if(format[i] == 'c') {
+				char* buffer = va_arg(parameters, char*);
+                char c = getchar();
+                *buffer = c;
+			}
+			else if(format[i] == 's') {
+				char** buffer = va_arg(parameters, char**);
+                char* c = (char*)scan();
+                *buffer = c;
+            }
+		}
     }
     va_end(parameters);
     return 1;
