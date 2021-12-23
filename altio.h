@@ -30,9 +30,7 @@ int putchar(int c) {
     return 1;
 }
 
-inline void print(const char* str, size_t size) {
-	for(size_t i = 0; i < size; i++) putchar(str[i]);
-}
+#define print(c,s) for(size_t i = 0; i < (size_t)s; i++) putchar( ((const char*)c) [i]);
 
 int printf(const char* restrict format, ...) {
     va_list parameters;
