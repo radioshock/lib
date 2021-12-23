@@ -14,15 +14,9 @@ size_t strlen(const char* str)
 }
 
 /* Modified from wiki.osdev.org/Printing_To_Screen */
-char* itoa(int value,
-#if defined(_USE_STD_)
-char* str,
-#endif
-int base)
+char* itoa(int value,int base)
 {
-    #if !defined(_USE_STD_)
     static char str[255];
-    #endif
     char *rc, *ptr, *low;
     // Check for supported base.
     if ( base < 2 || base > 36 )
