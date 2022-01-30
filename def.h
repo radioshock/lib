@@ -1,4 +1,4 @@
-/*  ALTDEF.H
+/*  DEF.H
     C alternate standard library
     Variable types
 */

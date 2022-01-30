@@ -1,4 +1,4 @@
-/*  ALTIO.H
+/*  IO.H
 	C alternate standard library
 	Standard Input/Output
 */

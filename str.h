@@ -1,4 +1,4 @@
-/*  STRING.H
+/*  STR.H
     C alternate standard library
     String handling
 */
