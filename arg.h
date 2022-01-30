@@ -1,4 +1,4 @@
-/*  ALTARG.H
+/*  ARG.H
     C alternate standard library
     Variadic arguments
 */
