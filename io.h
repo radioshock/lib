@@ -8,11 +8,9 @@
 
 #if defined(__unix__) || defined(__APPLE__)
 #include "unistd.h"
-#elif defined(_WIN32)
-#error "altio.h: Microsoft Windows is not supported at this time."
-#elif defined(__ACRYLIC__)
-#include "interface.h"
-#endif // __unix__ __APPLE__ _WIN32 __ACRYLIC__
+#else
+#error "altio.h: Non-unix environments are currently unsupported."
+#endif // __unix__ __APPLE__
 
 #include "altarg.h"
 #include "altdef.h"
